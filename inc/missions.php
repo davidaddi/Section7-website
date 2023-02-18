@@ -5,6 +5,14 @@ $stmt = $db->prepare('SELECT * FROM missions_desc WHERE statut="A"');
 $stmt->execute();
 $row = $stmt->fetch();
 
+$date_str = $row['deadline'];
+$date = new DateTime($date_str);
+
+setlocale(LC_TIME, 'fr_FR.utf8', 'fra');
+
+$date_format = strftime('%e %B %Y à %Hh%M', $date->getTimestamp());
+
+
 ?>
 
 <section class="missions" id="missions">
@@ -19,6 +27,7 @@ $row = $stmt->fetch();
           <h3>Rang <?php echo($row['rangMission']);?></h3>
           <h3 class="recomp">Objectif : <?php echo($row['objectifMission']); ?></h3>
           <h3 class="recomp">Récompense : <span>+<?php echo($row['recompense']);?> DC</span></h3>
+          <h3 class="recomp">Débriefing de la mission : <span>+<?php echo $date_format;?></span> sur <a href="https://www.tiktok.com/@mauvetech"><u>TikTok</u> et <a href="https://www.twitch.tv/mauvetech"><u>Twitch</u ></a></h3>
           <details>
             <summary>Voir l'énoncé de la mission</summary>
             <p><?php echo($row['enonce']);?></p>
