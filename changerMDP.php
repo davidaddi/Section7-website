@@ -8,6 +8,8 @@ if(!$isConnected) {
     header('Location: login.php');
 }
 
+$user = $_SESSION['user'];
+
 if(!empty($_POST)) {
 	$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -17,10 +19,8 @@ if(!empty($_POST)) {
 
   	if(!password_verify($actualPassword, $user['password'])) {
         $err = "Mauvais mot de passe actuel.";
-        $errors[] = $err;
-        
+        $errors[] = $err;  
   	}
-    
 
   	if(empty($newPassword)){
 	    $err = 'Veuillez entrer un nouveau mot de passe.';

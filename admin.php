@@ -26,7 +26,7 @@ if(!$isConnected) {
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="sortSubs">
         <label>
             <input type="radio" name="status" value="A">
-            Afficher les soumissions des missions actives
+            Afficher les soumissions de la missions actives
         </label>
         <label>
             <input type="radio" name="status" value="all" checked>
