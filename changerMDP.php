@@ -43,7 +43,7 @@ if(!empty($_POST)) {
 		$req->bindValue(':id', $user['id'], PDO::PARAM_INT);
 		$req->execute();
 
-		$success = 'Password updated !';
+		$success = 'Mot de passe mis à jour !';
 	}
 }
 

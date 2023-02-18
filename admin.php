@@ -29,7 +29,7 @@ if(!$isConnected) {
             Afficher les soumissions de la missions actives
         </label>
         <label>
-            <input type="radio" name="status" value="all" checked>
+            <input type="radio" name="status" value="all">
             Afficher toutes les soumissions
         </label>
         <input type="submit" value="Afficher les soumissions">
