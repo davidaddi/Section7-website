@@ -12,13 +12,13 @@ Section 7 - Mission 2 : Mettre en place un système efficace pour suivre les mis
 <b>bans</b>(<ins>id</ins>, email, username, password, role, github,discord)<br>
 </p>
 
-##### Authentification  
+#### Authentification  
 Le site est équipé d'un système d'authentification : inscription, connexion et déconnexion. Il est aussi possible de changer toutes ses informations personnelles (mot de passe (entrain d'être arrangé), pseudo, discord, email) mais aussi de voir l'historique des soumissions de projet.
 
-##### Administrateur 
+#### Administrateur 
 J'ai également mis en place un système d'administration. Elle passe par la base de données. Tout administrateur doit avoir son role changé dans la table users (changer l'attribut statut (par défault user) par admin). Une fois fait, l'administrateur peut accéder a la liste des utilisateurs et des soumissions. Il est également possible de créer une nouvelle mission.
 
-##### Missions 
+#### Missions 
 Les missions sont sauvegardées dans la base de données dans 2 tables :
 <ul>
   <li><b>missions_desc</b>, qui a pour but de répertorier toutes les soumissions de projets</li>
