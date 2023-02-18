@@ -13,9 +13,15 @@
     
     foreach($preceptes as $precepte) {
       echo '
-      <div class="precept">
-        <h3 class="precept-title">'.$precepte['precepte'].'</h3>
-        <p class="precept-text">'.$precepte['description'].'</p>
+      <div class="precept" style="display: flex;align-items: center;">
+        <div class="preceptLeft">
+          <img class="precept-img" style="width: 45px;margin-right: 15px;" src="src/media/'.$precepte['image'].'.png">
+        </div>
+
+        <div class="preceptRight">
+          <h3 class="precept-title">'.$precepte['precepte'].'</h3>
+          <p class="precept-text">'.$precepte['description'].'</p>
+        </div>
       </div>
       ';
     }
