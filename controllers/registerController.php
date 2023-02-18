@@ -28,6 +28,14 @@ if(!empty($_POST)) {
         $errors[] = $err;
     }
 
+    $req = $db->prepare("SELECT * FROM bans WHERE email='$email' OR discord='$discord' OR github='$github'");
+    $req->execute();
+
+    if($req->rowCount() > 0){
+        $err = 'Vous êtes bannis de la Section 7, il est impossible pour vous de vous inscrire.';
+        $errors[] = $err;
+    }
+
     if (empty($username)) {
         $err = 'Entrez un nom d\'utilisateur.';
         $errors[] = $err;
@@ -37,6 +45,8 @@ if(!empty($_POST)) {
         $err = 'Le nom d\'utilisateur doit contenir au moins 3 caractères.';
         $errors[] = $err;
     }
+
+
 
     $req = $db->prepare("SELECT * FROM users WHERE username='$username'");
     $req->execute();

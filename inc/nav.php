@@ -2,11 +2,11 @@
 <section id="heroHeader">
     <nav>
         <ul>
-            <li><a href="#heroHeader">Acceuil</a></li>
-            <li><a href="#grades">Les Grades</a></li>
-            <li><a href="#missions">Les Missions</a></li>
-            <li><a href="#preceptes">Les Préceptes</a></li>
-            <li><a href="#preceptes">Soumettre un projet</a></li>
+            <li><a href="index.php#heroHeader">Acceuil</a></li>
+            <li><a href="index.php#grades">Les Grades</a></li>
+            <li><a href="index.php#missions">Les Missions</a></li>
+            <li><a href="index.php#preceptes">Les Préceptes</a></li>
+            <li><a href="index.php#Subs">Soumettre un projet</a></li>
 
             <?php if(!$isConnected):?>
                 <li><a href="connexion.php" class="membres">Se Connecter</a></li>

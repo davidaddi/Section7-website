@@ -70,6 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 <?php endif;?>
 
+<section id="Subs">
 <form class="form" method="POST">
   <h2>Envoie-nous ton projet</h2>
   <div class="form-group">
@@ -100,3 +101,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   <button type="submit">ENVOYER</button>
 </form>
+</section>

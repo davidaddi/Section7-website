@@ -1,3 +1,4 @@
+<section id="Acceuil">
 <div class="cards">
         <div class="card">
             <h1>SECTION 7</h1>
