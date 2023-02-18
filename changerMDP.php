@@ -16,22 +16,24 @@ if(!empty($_POST)) {
   	$errors = [];
 
   	if(!password_verify($actualPassword, $user['password'])) {
-        $err = "Current wrong password.";
+        $err = "Mauvais mot de passe actuel.";
         $errors[] = $err;
+        
   	}
+    
 
   	if(empty($newPassword)){
-	    $err = 'The password is required.';
+	    $err = 'Veuillez entrer un nouveau mot de passe.';
         $errors[] = $err;
 	}
 
     if(strlen($newPassword) < 6){
-	    $err = 'The new password must contain at least 6 characters.';
+	    $err = 'Le nouveau mot de passe doit avoir au moins 6 caractères.';
         $errors[] = $err;
 	}
 
 	if($newPassword !== $confirmNewPassword){
-		$err = 'The new passwords do not match.';
+		$err = 'Les deux nouveaux mots de passe ne correspondent pas .';
         $errors[] = $err;
 	}
 
@@ -84,11 +86,4 @@ if(!empty($_POST)) {
         </div>
         <button type="submit">ENVOYER</button>
     </form>
-
-
 </main>
-
-?>
-
-
-?>

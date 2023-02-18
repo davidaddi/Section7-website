@@ -64,5 +64,5 @@ include_once('controllers/registerController.php');
       <span class="icon"><i class="fab fa-lock"></i></span>
     </div>
   </div>
-  <button type="submit">ENVOYER</button>
+  <button type="submit">S'INSCRIRE</button>
 </main>

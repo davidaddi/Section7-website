@@ -2,8 +2,8 @@
 
 include_once('inc/headHTML.php');
 require("./lib/db.php"); 
-
 require_once('lib/testadmin.php');
+include_once('inc/nav.php');
 
 $isConnected = isset($_SESSION["user"]);
 

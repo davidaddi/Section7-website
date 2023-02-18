@@ -36,5 +36,5 @@ include_once('controllers/loginController.php');
       <span class="icon"><i class="fab fa-lock"></i></span>
     </div>
   </div>
-  <button type="submit">ENVOYER</button>
+  <button type="submit">SE CONNECTER</button>
 </main>
