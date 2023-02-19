@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 18 fév. 2023 à 21:12
+-- Généré le : dim. 19 fév. 2023 à 12:05
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.0.23
 
@@ -130,19 +130,20 @@ INSERT INTO `missions_submissions` (`user`, `nomMission`, `discord`, `lien_repo_
 
 CREATE TABLE `preceptes` (
   `precepte` text NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `preceptes`
 --
 
-INSERT INTO `preceptes` (`precepte`, `description`) VALUES
-('La Matrixe', 'Chaque soldat de la Section 7 doit être passionné par la technologie, le développement et la programmation à un niveau qui peut être considéré comme la matrixe.'),
-('Les missions', 'Les missions de la Section 7 visent à propager la technologie en France et à améliorer la vie des gens. Les soldats sont encouragés à participer à autant de missions que possible pour augmenter leur DevCred (Crédibilité du développeur).'),
-('L\'innovation', 'La Section 7 est un mouvement culturel qui célèbre l\'innovation et encourage les soldats à créer des outils et des technologies innovantes.'),
-('La passion', 'La passion est au cœur de la Section 7. Les soldats doivent être passionnés par leur travail et inspirer les générations futures de développeurs et de programmeurs.'),
-('La coopération', 'La Section 7 est une communauté de développeurs et de programmeurs qui travaillent ensemble pour atteindre leurs objectifs. La coopération est encouragée et les soldats sont invités à partager leurs connaissances et leur expertise avec les autres membres de la communauté.');
+INSERT INTO `preceptes` (`precepte`, `description`, `image`) VALUES
+('La Matrixe', 'Chaque soldat de la Section 7 doit être passionné par la technologie, le développement et la programmation à un niveau qui peut être considéré comme la matrixe.', 'matrix'),
+('Les missions', 'Les missions de la Section 7 visent à propager la technologie en France et à améliorer la vie des gens. Les soldats sont encouragés à participer à autant de missions que possible pour augmenter leur DevCred(Crédibilité du développeur).', 'mission'),
+('L\'innovation', 'La Section 7 est un mouvement culturel qui célèbre l\'innovation et encourage les soldats à créer des outils et des technologies innovantes.', 'innovation'),
+('La Passion', 'La passion est au cœur de la Section 7. Les soldats doivent être passionnés par leur travail et inspirer les générations futures de développeurs et de programmeurs.', 'passion'),
+('La coopération', 'La Section 7 est une communauté de développeurs et de programmeurs qui travaillent ensemble pour atteindre leurs objectifs. La coopération est encouragée et les soldats sont invités à partager leurs connaissances et leur expertise avec les autres membres de la communauté.', 'cooperation');
 
 -- --------------------------------------------------------
 
