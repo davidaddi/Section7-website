@@ -38,6 +38,8 @@ if(!$isConnected) {
     <table id="usersTable">
         <tr>
             <th>Mission</th>
+            <th>User</th>
+            <th>Discord</th>
             <th>Repo Github</th>
         </tr>
 
@@ -61,6 +63,8 @@ if(!$isConnected) {
             echo '
                 <tr>
                     <td>'.$submission['nomMission'].'</td>
+                    <td>'.$submission['user'].'</td>
+                    <td>'.$submission['discord'].'</td>
                     <td><a href='.$submission['lien_repo_github'].'>'.$submission['lien_repo_github'].'</a></td>
                 </tr>';
             };

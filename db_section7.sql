@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 19 fév. 2023 à 12:05
+-- Généré le : dim. 19 fév. 2023 à 12:19
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.0.23
 
@@ -166,9 +166,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `role`, `github`, `discord`) VALUES
-(1, 'mauvetech@gmail.com', 'mauvetech', '$2y$10$bcVvRxe0Lnvx9/xPIBaJpOPNfTvKGB998EgBhPzwq6AqHxcKP7Tnq', 'admin', 'https://github.com/mauvetech', 'Mauvetech#9214'),
-(2, 'david.addi@yahoo.fr', 'smvcky', '$2y$10$E9ejwrdjWxN3mU0gdAftE.kUXoJMBnhHLZKy/bed.no/YHqb1YYXS', 'user', 'https://github.com/davidaddi', 'smvcky#9438'),
-(3, 'test@test.fr', 'test', '$2y$10$CZakeS7KiJdCa87cAxLZyeV9x1cBCTjPozJx.vXZCTrQYeRvXJE/q', 'user', 'http://github.com/testtest', 'testes#0000');
+(1, 'mauvetech@gmail.com', 'mauvetech', '$2y$10$TcOZwU4FE6RLJxnWPFLH5O6chRVESwEHPdkB4NReEJ.ZXFw4n6MNC', 'admin', 'https://github.com/mauvetech', 'Mauvetech#9214'),
+(2, 'david.addi@yahoo.fr', 'smvcky', '$2y$10$YrjOPY12K6wAnxNZ0k62cuuMukPX2EE/MeMtcB8AwLvjvyIZsIEZC', 'user', 'https://github.com/davidaddi', 'smvcky#9438');
 
 --
 -- Index pour les tables déchargées
@@ -200,7 +199,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
