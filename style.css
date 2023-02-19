@@ -4,6 +4,10 @@
     border: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Bebas Neue';
   letter-spacing: 1.19px;
