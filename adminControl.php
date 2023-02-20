@@ -15,6 +15,7 @@ switch ($action) {
         $req->execute(['admin', $id]);
         header('Location: admin.php');
         break;
+
     case 'ban':
         $id = $_GET['id'];
         $req = $db->prepare('INSERT INTO bans SELECT * FROM users WHERE id=?');
@@ -23,12 +24,30 @@ switch ($action) {
         $req->execute([$id]);
         header('Location: admin.php');
         break;
+
     case 'remove':
         $id = $_GET['id'];
         $req = $db->prepare('UPDATE users SET role=? WHERE id=?');
         $req->execute(['user', $id]);
         header('Location: admin.php');
         break;
+
+    case 'remove':
+        $id = $_GET['id'];
+        $req = $db->prepare('UPDATE users SET role=? WHERE id=?');
+        $req->execute(['user', $id]);
+        header('Location: admin.php');
+        break;
+
+    case 'deban':
+        $id = $_GET['id'];
+        $req = $db->prepare('INSERT INTO users SELECT * FROM bans WHERE id=?');
+        $req->execute([$id]);
+        $req = $db->prepare('DELETE FROM bans WHERE id=?');
+        $req->execute([$id]);
+        header('Location: admin.php');
+        break;
+
     default:
         // afficher la liste des utilisateurs
         $users = $db->query('SELECT * FROM users')->fetchAll();

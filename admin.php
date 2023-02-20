@@ -166,7 +166,6 @@ if(!$isConnected) {
             <th>Github</th>
             <th>Discord</th>
             <th> </th>
-            <th> </th>
         </tr>
         <?php foreach ($users as $user): ?>
             <tr>
@@ -177,17 +176,10 @@ if(!$isConnected) {
                 <td><?= $user['discord'] ?></td>
                 <td><?= $user['role'] ?></td>
                 <td>
-                    <button class="btn-danger" onclick="return confirm('Voulez vous vraiment bannir le compte ?');">
-                    <a href="adminControl.php?action=ban&id=<?= $user['id'] ?>&email=<?= $user['email'] ?>&username=<?= $user['username'] ?>"
-                    class="delete" style="color: #fff">Bannir le compte</a></button>
+                    <button class="btn-danger" onclick="return confirm('Voulez vous vraiment débannir le compte ?');">
+                    <a href="adminControl.php?action=deban&id=<?= $user['id']?>"
+                    class="delete" style="color: #fff">Débannir le compte</a></button>
                 </td>
-                <?php if($user['role']==='user'):?>
-                <td>
-                    <button class="btn-danger" onclick="return confirm('Voulez vous promouvoir le compte administrateur ?');">
-                    <a href="adminControl.php?action=promote&id=<?= $user['id'] ?>"
-                    class="delete" style="color: #fff">Débannir</a></button>
-                </td>
-                <?php endif;?>
             </tr>
         <?php endforeach; ?>
     </table>
