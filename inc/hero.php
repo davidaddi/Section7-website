@@ -8,7 +8,7 @@
             <br>Si vous êtes prêt à relever le défi et à vous battre pour la victoire, rejoignez-nous maintenant sur Discord et devenez un membre de la Section 7, l'élite de l'élite des codeurs. En avant soldat, nous vous attendons.</p>
         </div>
         <div class="card">
-          <video controls autoplay width="400">
+          <video controls width="400">
             <source src="src/media/video.mp4" type="video/mp4" ></source>
           </video>
         </div>

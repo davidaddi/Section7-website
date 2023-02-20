@@ -103,40 +103,94 @@ if(!$isConnected) {
             <th>Github</th>
             <th>Discord</th>
             <th> </th>
+            <th> </th>
         </tr>
         <?php foreach ($users as $user): ?>
             <tr>
                 <td><?= $user['id'] ?></td>
                 <td><?= $user['username'] ?></td>
                 <td><?= $user['email'] ?></td>
-                <td><?= $user['role'] ?></td>
                 <td><?= $user['github'] ?></td>
                 <td><?= $user['discord'] ?></td>
+                <td><?= $user['role'] ?></td>
                 <td>
-                    <input type="hidden" name="action">
                     <button class="btn-danger" onclick="return confirm('Voulez vous vraiment bannir le compte ?');">
-                        <a href="admindelete.php?id=<?= $user['id'] ?>&email=<?= $user['email'] ?>&username=<?= $user['username'] ?>"
-                           class="delete" style="color: #fff">Bannir le compte</a></button>
+                    <a href="adminControl.php?action=ban&id=<?= $user['id'] ?>&email=<?= $user['email'] ?>&username=<?= $user['username'] ?>"
+                    class="delete" style="color: #fff">Bannir le compte</a></button>
                 </td>
+                <?php if($user['role']==='user'):?>
+                <td>
+                    <button class="btn-success" onclick="return confirm('Voulez vous promouvoir le compte administrateur ?');">
+                    <a href="adminControl.php?action=promote&id=<?= $user['id'] ?>"
+                    class="delete" style="color: #fff">Promouvoir administrateur</a></button>
+                </td>
+                <?php else:?>
+                <td>
+                    <button class="btn-danger" onclick="return confirm('Voulez vous retirer le rôle administrateur ?');">
+                    <a href="adminControl.php?action=remove&id=<?= $user['id'] ?>"
+                    class="delete" style="color: #fff">Retirer le rôle administrateur</a></button>
+                </td>
+                <?php endif;?>
             </tr>
         <?php endforeach; ?>
     </table>
 </div>
 
-<style>
-    .btn-orange {
-        background: #ff5c00;
-        color: white;
-        font-family: 'Bebas Neue';
-        padding: 12px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        margin: auto;
+<div class="allBans" >
+    <h1 class="newSectionH1">Tous les membres</h1>
+    <p style="text-align: center; color: #fff">(Par default tous les membres sont affichés)</p>
+    <form method="get" class="searchUsers">
+        <label for="username" style="color: #fff">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required>
+        <input type="submit" value="Rechercher">
+    </form>
+    <?php
+    if(isset($_GET['username']) && !empty($_GET['username'])) {
+        $username = $_GET['username'];
+        $stmt = $db->prepare("SELECT * FROM bans WHERE username LIKE CONCAT('%', :username, '%')");
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $users = $stmt->fetchAll();
+    } else {
+        $stmt = $db->prepare('SELECT * FROM bans');
+        $stmt->execute();
+        $users = $stmt->fetchAll();
     }
-</style>
-
+    ?>
+    <table id="usersTable">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Github</th>
+            <th>Discord</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user['id'] ?></td>
+                <td><?= $user['username'] ?></td>
+                <td><?= $user['email'] ?></td>
+                <td><?= $user['github'] ?></td>
+                <td><?= $user['discord'] ?></td>
+                <td><?= $user['role'] ?></td>
+                <td>
+                    <button class="btn-danger" onclick="return confirm('Voulez vous vraiment bannir le compte ?');">
+                    <a href="adminControl.php?action=ban&id=<?= $user['id'] ?>&email=<?= $user['email'] ?>&username=<?= $user['username'] ?>"
+                    class="delete" style="color: #fff">Bannir le compte</a></button>
+                </td>
+                <?php if($user['role']==='user'):?>
+                <td>
+                    <button class="btn-danger" onclick="return confirm('Voulez vous promouvoir le compte administrateur ?');">
+                    <a href="adminControl.php?action=promote&id=<?= $user['id'] ?>"
+                    class="delete" style="color: #fff">Débannir</a></button>
+                </td>
+                <?php endif;?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
 
 </main>
