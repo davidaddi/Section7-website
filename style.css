@@ -300,6 +300,10 @@ nav > ul > li:hover {
     max-width: 940px;
     margin-top: 10px;
   }
+
+  .mission:first-child {
+    margin: 0;
+  }
   
   .missions-grid {
     display: grid;

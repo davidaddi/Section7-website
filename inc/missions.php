@@ -22,56 +22,74 @@ $date_format = strftime('%e %B %Y à %Hh%M', $date->getTimestamp());
         Plus vous accumulez de points, plus votre grade s'élève. Cela vous donne accès à de nouvelles opportunités et à de nouveaux canaux.</p>
          -->
       <div class="mission-wrapper">
-        <div class="mission urgent">
-          <h3 class="mission-title">Mission en cours - <?php echo($row['nomMission']);?></h3>
-          <h3>Rang <?php echo($row['rangMission']);?></h3>
-          <h3 class="recomp">Objectif : <?php echo($row['objectifMission']); ?></h3>
-          <h3 class="recomp">Récompense : <span>+<?php echo($row['recompense']);?> DC</span></h3>
-          <h3 class="recomp">Débriefing de la mission : <span>+<?php echo $date_format;?></span> sur <a href="https://www.tiktok.com/@mauvetech"><u>TikTok</u> et <a href="https://www.twitch.tv/mauvetech"><u>Twitch</u ></a></h3>
-          <details>
-            <summary>Voir l'énoncé de la mission</summary>
-            <p><?php echo($row['enonce']);?></p>
-        </details>
+        <div class="mission urgent" style="max-width: 1000px;">
+            <h3 class="mission-title">Mission en cours - <?php echo($row['nomMission']);?></h3>
+            <h3>Rang <?php echo($row['rangMission']);?></h3>
+            <h3 class="recomp">Objectif : <?php echo($row['objectifMission']); ?></h3>
+            <h3 class="recomp">Récompense : <span>+<?php echo($row['recompense']);?> DC</span></h3>
+            <h3 class="recomp">Débriefing de la mission : <span>+<?php echo $date_format;?></span> sur <a href="https://www.tiktok.com/@mauvetech"><u>TikTok</u> et <a href="https://www.twitch.tv/mauvetech"><u>Twitch</u ></a></h3>
+            <details>
+                <summary>Voir l'énoncé de la mission</summary>
+                <p><?php echo($row['enonce']);?></p>
+            </details>
         </div>
         
         <?php 
-        $stmt = $db->prepare('SELECT * FROM missions_desc WHERE statut="F" LIMIT 6');
+        $stmt = $db->prepare('SELECT * FROM missions_desc WHERE statut="F" LIMIT 3');
         $stmt->execute();                       
-        $nbLignes = $stmt->rowCount();
+        $count = $stmt->rowCount();
         $oldMissions = $stmt->fetchAll();
-        ?> 
+        
 
-        <div class="missions-grid" style="display: grid; grid-template-columns: <?php
-                // Définit la largeur des colonnes en fonction du nombre de lignes renvoyées
-                switch ($nbLignes) {
-                    case 1:
-                        echo '1fr';
-                        break;
-                    case 2:
-                        echo '1fr 1fr';
-                        break;
-                    case 3:
-                        echo '1fr 1fr 1fr';
-                        break;
-                    default:
-                        echo '1fr 1fr 1fr 1fr';
-                }
-            ?>; justify-items: center; gap: 20px;">
-            <?php
-                foreach($oldMissions as $oldMission) {
-                    echo('<div class="mission" style="width: 100%; max-width: 400px; margin-left: calc((100% - ' . $nbLignes . ' * 400px) / ' . $nbLignes * 2 . ');">
-                        <h3 class="mission-title">Mission '. $oldMission['idMission'] .' - '. $oldMission['nomMission'] .'</h3>
-                        <h3>Rang '. $oldMission["rangMission"] .'</h3>
-                        <h3 class="recomp">Objectif : '.$oldMission["objectifMission"].'</h3>
-                        <h3 class="recomp">Récompense : <span>+'.$oldMission["recompense"].' DC</span></h3>
-                        <details>
-                            <summary>Voir l\'énoncé de la mission</summary>
-                            <p>'.$oldMission["enonce"].'</p>
-                        </details>
-                    </div>');
-                }
-            ?>
-          </div>
-      </div>
+        if ($count === 1) {
+            foreach ($oldMissions as $oldMission) {
+                echo '<div class="mission" style="max-width: 470px; margin: 0 auto; margin-top: 35px;">
+                <h3 class="mission-title">Mission '. $oldMission['idMission'] .' - '. $oldMission['nomMission'] .'</h3>
+                <h3>Rang '. $oldMission["rangMission"] .'</h3>
+                <h3 class="recomp">Objectif : '.$oldMission["objectifMission"].'</h3>
+                <h3 class="recomp">Récompense : <span>+'.$oldMission["recompense"].' DC</span></h3>
+                <details>
+                <summary>Voir l\'énoncé de la mission</summary>
+                <p>'.$oldMission["enonce"].'</p>
+                </details>
+                </div>';
+                echo '</div>';
+            }
+        }
+
+        else if ($count === 2) {
+            echo '<div style="max-width: 940px; margin: 0 auto; display: flex; justify-content: space-between; ">';
+            foreach ($oldMissions as $oldMission) {
+                echo '<div class="mission" style="width: 47%; text-align: center; margin-right: 25px; margin-top: 35px;">
+                <h3 class="mission-title">Mission '. $oldMission['idMission'] .' - '. $oldMission['nomMission'] .'</h3>
+                <h3>Rang '. $oldMission["rangMission"] .'</h3>
+                <h3 class="recomp">Objectif : '.$oldMission["objectifMission"].'</h3>
+                <h3 class="recomp">Récompense : <span>+'.$oldMission["recompense"].' DC</span></h3>
+                <details>
+                <summary>Voir l\'énoncé de la mission</summary>
+                <p>'.$oldMission["enonce"].'</p>
+                </details>
+                </div>';
+            }
+            echo '</div>';
+        }
+
+        else if ($count === 3) {
+            echo '<div style="max-width: 940px; margin: 0 auto; margin-top: 35px; display: flex; justify-content: space-between;">';
+            foreach ($oldMissions as $oldMission) {
+                echo '<div class="mission" style="width: 30%; text-align: center;margin-left: 30px;" >
+                <h3 class="mission-title">Mission '. $oldMission['idMission'] .' - '. $oldMission['nomMission'] .'</h3>
+                <h3>Rang '. $oldMission["rangMission"] .'</h3>
+                <h3 class="recomp">Objectif : '.$oldMission["objectifMission"].'</h3>
+                <h3 class="recomp">Récompense : <span>+'.$oldMission["recompense"].' DC</span></h3>
+                <details>
+                <summary>Voir l\'énoncé de la mission</summary>
+                <p>'.$oldMission["enonce"].'</p>
+                </details>
+                </div>';
+            }
+            echo '</div>';
+        }
+    ?>
     </div>
 </section> 

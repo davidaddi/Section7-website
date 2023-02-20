@@ -41,7 +41,7 @@ switch ($action) {
 
     case 'deban':
         $id = $_GET['id'];
-        $req = $db->prepare('INSERT INTO users SELECT * FROM bans WHERE id=?');
+        $req = $db->prepare('INSERT INTO users SELECT * FROM abns WHERE id=?');
         $req->execute([$id]);
         $req = $db->prepare('DELETE FROM bans WHERE id=?');
         $req->execute([$id]);

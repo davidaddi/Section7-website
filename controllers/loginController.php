@@ -34,16 +34,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([
             "username" => $credentials['username']
         ]);
+
+        $req = $db->prepare('SELECT * FROM bans WHERE username=:username');
+        $req->bindValue(':username', $username, PDO::PARAM_STR);
+        $req->execute([
+            "username" => $credentials['username']
+        ]);
     
+        $banned = $req->fetch();
         $user = $stmt->fetch();
 
-        if($user && password_verify($password, $user['password'])) {
-            $_SESSION['user'] = $user;
-            header('Location: index.php');
+        if($banned) {
+            $err = 'Vous êtes bannis.';
+            $errors[] = $err;
+        } else {
+            if($user && password_verify($password, $user['password'])) {
+                $_SESSION['user'] = $user;
+                header('Location: index.php');
+            } else {
+                $err = 'Nom d\'utilisateur ou mot de passe incorrect.';
+                $errors[] = $err;
+            }
         }
-
-        $err = 'Mauvais identifiants.';
-        $errors[] = $err;
     }
 }
 

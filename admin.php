@@ -137,8 +137,8 @@ if(!$isConnected) {
 </div>
 
 <div class="allBans" >
-    <h1 class="newSectionH1">Tous les membres</h1>
-    <p style="text-align: center; color: #fff">(Par default tous les membres sont affichés)</p>
+    <h1 class="newSectionH1">Tous les bannis</h1>
+    <p style="text-align: center; color: #fff">(Par default tous les membres bannis sont affichés)</p>
     <form method="get" class="searchUsers">
         <label for="username" style="color: #fff">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username" required>

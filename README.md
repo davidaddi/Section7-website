@@ -1,7 +1,7 @@
 # Section7-website
 Section 7 - Mission 2 : Mettre en place un système efficace pour suivre les missions de la Section 7 et enregistrer les contributions de chaque membre de la communauté.
 
-<h5>Le projet est réalisé en PHP/MySQL. </h5>
+<h4>Le projet est réalisé en PHP/MySQL. </h4>
 <p><b>Présentation de la base de données `db_section7`</b></p>
 <p>
 <b>users</b>(<ins>id</ins>, email, username, password, role, github,discord)<br>
@@ -12,13 +12,14 @@ Section 7 - Mission 2 : Mettre en place un système efficace pour suivre les mis
 <b>bans</b>(<ins>id</ins>, email, username, password, role, github,discord)<br>
 </p>
 
-#### Authentification  
+#### <b>Authentification </b> 
 Le site est équipé d'un système d'authentification : inscription, connexion et déconnexion. Il est aussi possible de changer toutes ses informations personnelles (mot de passe (entrain d'être arrangé), pseudo, discord, email) mais aussi de voir l'historique des soumissions de projet.
 
-#### Administrateur 
-J'ai également mis en place un système d'administration. Elle passe par la base de données. Tout administrateur doit avoir son role changé dans la table users (changer l'attribut statut (par défault user) par admin). Une fois fait, l'administrateur peut accéder a la liste des utilisateurs et des soumissions. Il est également possible de créer une nouvelle mission.
+#### <b>Administrateur</b>
+Un système d'administration est également présent, qui passe par la base de données. Après un récent update, il est maintenant possible via le panneau de gestion administrateur ('Coin des administrateurs' dans la barre des tâches), de promouvoir des utilisateurs lambda admins, mais aussi de retirer le rôle admin dans n'importe quel utilisateur. <br>
+Notez que si vous retirez le rôle utilisateur a tous les utilisateurs sans exception, il est toujours possible de redesigner un admin dans phpMyAdmin en modifiant la colonne statut de la table <b>users</b>.
 
-#### Missions 
+#### <b>Missions</b>
 Les missions sont sauvegardées dans la base de données dans 2 tables :
 <ul>
   <li><b>missions_desc</b>, qui a pour but de répertorier toutes les soumissions de projets</li>
