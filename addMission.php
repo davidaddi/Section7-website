@@ -96,14 +96,14 @@ if(!empty($success)):?>
     <div class="form-group">
         <label for="username">Nom de la mission :</label>
         <div class="input-group">
-        <input type="text" name="nomMission" placeholder="Nom de la mission">
+        <input type="text" name="nomMission" placeholder="Nom de la mission" value="<?= $nomMission ?? ''; ?>">
         </div>
     </div>
 
     <div class="form-group">
         <label for="github">Objectif de la Mission</label>
         <div class="input-group">
-            <input type="text" name="objectifMission" placeholder="Rang de la mission">
+            <input type="text" name="objectifMission" placeholder="Objectif de la mission" value="<?= $objectifMission ?? ''; ?>">
         </div>
     </div>
 
@@ -122,14 +122,14 @@ if(!empty($success)):?>
     <div class="form-group">
         <label for="enconceMission">Énoncé de la mission</label>
         <div class="input-group">
-            <textarea name="enonceMission" rows="5" cols="60" placeholder="Si l'objectif résume assez bien il n'est pas obligatoire de mettre un énoncé"></textarea>
+            <textarea name="enonceMission" rows="5" cols="60" placeholder="Si l'objectif résume assez bien il n'est pas obligatoire de mettre un énoncé" value="<?= $enonceMission ?? ''; ?>"></textarea>
         </div>
     </div>
 
     <div class="form-group">
         <label for="github">Récompense pour la Mission</label>
         <div class="input-group">
-            <input name="recompMission" type="number" min="0" step="1"/>
+            <input name="recompMission" type="number" min="0" step="1" value="<?= $recompMission ?? ''; ?>"/>
         </div>
     </div>
 

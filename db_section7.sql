@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 19 fév. 2023 à 12:19
+-- Généré le : lun. 20 fév. 2023 à 14:46
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.0.23
 
@@ -89,7 +89,7 @@ CREATE TABLE `missions_desc` (
   `rangMission` varchar(1) NOT NULL,
   `objectifMission` mediumtext NOT NULL,
   `recompense` int(11) NOT NULL,
-  `enonce` text NOT NULL DEFAULT '  ',
+  `enonce` text DEFAULT NULL,
   `statut` varchar(10000) NOT NULL,
   `deadline` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -99,7 +99,7 @@ CREATE TABLE `missions_desc` (
 --
 
 INSERT INTO `missions_desc` (`idMission`, `nomMission`, `rangMission`, `objectifMission`, `recompense`, `enonce`, `statut`, `deadline`) VALUES
-(2, 'DB de la Section 7', 'S', 'Mettre en place un système efficace pour suivre les missions de la Section 7 et enregistrer les contributions de chaque membre de la communauté.', 100, 'Développement d\'un site / application / logiciel : Ce système sera développé sous forme de site / application / logiciel qui permettra de répertorier les missions au fur et à mesure de leur arrivée. Il sera également possible de suivre les liens vers les différents repositories GitHub des participants.\r\n\r\nListe des préceptes de la Section 7 : La base de données inclura également une liste des préceptes de la Section 7, ce qui permettra aux membres de la communauté de s\'y référer en tout temps.\r\n\r\nDesign propre : Le site / application / logiciel sera conçu de manière claire et attrayante, afin de permettre une utilisation facile et intuitive.\r\n\r\nPortfolio de la Section 7 : Ce projet servira de portfolio pour la Section 7 et de vitrine pour les contributions de chaque membre. Il permettra également de montrer les réalisations de la communauté à l\'extérieur.', 'A', '2023-02-19 18:00:00'),
+(2, 'DB de la Section 7', 'S', 'Mettre en place un système efficace pour suivre les missions de la Section 7 et enregistrer les contributions de chaque membre de la communauté.', 100, 'Développement d\'un site / application / logiciel : Ce système sera développé sous forme de site / application / logiciel qui permettra de répertorier les missions au fur et à mesure de leur arrivée. Il sera également possible de suivre les liens vers les différents repositories GitHub des participants.\r\n\r\nListe des préceptes de la Section 7 : La base de données inclura également une liste des préceptes de la Section 7, ce qui permettra aux membres de la communauté de s\'y référer en tout temps.\r\n\r\nDesign propre : Le site / application / logiciel sera conçu de manière claire et attrayante, afin de permettre une utilisation facile et intuitive.\r\n\r\nPortfolio de la Section 7 : Ce projet servira de portfolio pour la Section 7 et de vitrine pour les contributions de chaque membre. Il permettra également de montrer les réalisations de la communauté à l\'extérieur.', 'F', '2023-02-19 18:00:00'),
 (1, 'Jeu de Drapeux', 'B', 'Réaliser une app/site/logiciel qui génère aléatoirement un drapeau, le joueur doit tenter de trouver le nom du pays du drapeau en question, vous avez le droit d’ajouter autant de fonctionnalités que vous voulez.', 25, '  ', 'F', '2023-02-04 22:00:00');
 
 -- --------------------------------------------------------
@@ -120,7 +120,8 @@ CREATE TABLE `missions_submissions` (
 --
 
 INSERT INTO `missions_submissions` (`user`, `nomMission`, `discord`, `lien_repo_github`) VALUES
-('smvcky', 'DB de la Section 7', 'smvcky#9438', 'https://github.com/davidaddi/Section7-website');
+('smvcky', 'DB de la Section 7', 'smvcky#9438', 'https://github.com/davidaddi/Section7-website'),
+('thierry', 'DB de la Section 7', 'TitiTheGoat#1987', 'https://github.com/titithegoat/test');
 
 -- --------------------------------------------------------
 
