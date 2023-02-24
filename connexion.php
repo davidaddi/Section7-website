@@ -20,7 +20,7 @@ include_once('controllers/loginController.php');
             </ul>
         </div>
     <?php endif;?>
-<form class="form" method="POST">
+<form class="form forgotPassword" method="POST">
   <h2>Se connecter</h2>
   <div class="form-group">
     <label for="username">Pseudo :</label>
@@ -35,6 +35,7 @@ include_once('controllers/loginController.php');
       <input type="password" id="password" placeholder="Votre mot de passe" name="password">
       <span class="icon"><i class="fab fa-lock"></i></span>
     </div>
+    <p style="color: #ff5c00; margin-top: 20px;"><a href="forgotPassword.php">Mot de passe oublié ?</a>
   </div>
   <button type="submit">SE CONNECTER</button>
 </main>

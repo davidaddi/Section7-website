@@ -28,6 +28,7 @@ ul, li {
     list-style-type: none;
 }
 
+
 a {
     all: unset;
 }
@@ -148,6 +149,10 @@ nav > ul > li:hover {
   display: inline-block;
 }
 
+.alert > ul > li {
+  display: list-item
+}
+
 .alert-success {
   max-width: 545px;
   margin: auto;
@@ -162,7 +167,7 @@ nav > ul > li:hover {
 }
 
 .alert ul {
-  list-style: circle;
+  list-style-type: circle;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 35px;
@@ -607,4 +612,10 @@ textarea{
   font-size: 17px;
   font-family: 'Bebas Neue';
   border: none;
+}
+
+.forgotPassword > a[href="forgotPassword.php"] {
+  color: #ff5c00;
+  margin-top: 10px;
+  text-align: center;
 }

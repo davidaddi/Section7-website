@@ -47,7 +47,6 @@ if(!empty($_POST)) {
     }
 
 
-
     $req = $db->prepare("SELECT * FROM users WHERE username='$username'");
     $req->execute();
 
@@ -95,14 +94,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($errors)) {
         $credentials = $_POST;
 
-        $stmt = $db->prepare('INSERT INTO users (username, email, discord, github, password) VALUES (:username, :email, :discord, :github, :password)');
+        $rand = rand();
+        $token = md5($rand);
+
+
+        $stmt = $db->prepare('INSERT INTO users (username, email, discord, github, password, token) VALUES (:username, :email, :discord, :github, :password, :token)');
         $stmt->execute([
             "username"=>$credentials['username'],
             "email"=>$credentials['email'],
             "discord"=>$credentials['discord'],
             "github"=>$credentials['github'],
-            "password" => password_hash($credentials['password'], PASSWORD_BCRYPT)
+            "password" => password_hash($credentials['password'], PASSWORD_BCRYPT),
+            "token" => $token
         ]);
+
+        $token = base64_encode($token);
+
         $success = 'Vous êtes bien inscrit, <a href="connexion.php"><u>vous pouvez vous connecter ici</u></a>.';
     }
 }

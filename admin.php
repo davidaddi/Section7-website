@@ -65,7 +65,7 @@ if(!$isConnected) {
                     <td>'.$submission['nomMission'].'</td>
                     <td>'.$submission['user'].'</td>
                     <td>'.$submission['discord'].'</td>
-                    <td><a href='.$submission['lien_repo_github'].'>'.$submission['lien_repo_github'].'</a></td>
+                    <td><a href='.$submission['lien_repo_github'].'target="_blank">'.$submission['lien_repo_github'].'</a></td>
                 </tr>';
             };
             echo'</table>';
