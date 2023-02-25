@@ -145,14 +145,14 @@ if(!$isConnected) {
     <p style="text-align: center; color: #fff">(Par default tous les membres bannis sont affichés)</p>
     <form method="get" class="searchUsers">
         <label for="username" style="color: #fff">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="usernameBan" required>
         <input type="submit" value="Rechercher">
     </form>
     <?php
-    if(isset($_GET['username']) && !empty($_GET['username'])) {
-        $username = $_GET['username'];
-        $stmt = $db->prepare("SELECT * FROM bans WHERE username LIKE CONCAT('%', :username, '%')");
-        $stmt->bindParam(':username', $username);
+    if(isset($_GET['usernameBan']) && !empty($_GET['usernameBan'])) {
+        $username = $_GET['usernameBan'];
+        $stmt = $db->prepare("SELECT * FROM bans WHERE username LIKE CONCAT('%', :usernameBan, '%')");
+        $stmt->bindParam(':usernameBan', $username);
         $stmt->execute();
         $users = $stmt->fetchAll();
     } else {
