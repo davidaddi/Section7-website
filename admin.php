@@ -38,9 +38,11 @@ if(!$isConnected) {
     <table id="usersTable">
         <tr>
             <th>Mission</th>
+            <th>Date de soumission</th>
             <th>User</th>
             <th>Discord</th>
             <th>Repo Github</th>
+            <th>Commentaire</th>
         </tr>
 
     <?php
@@ -63,9 +65,11 @@ if(!$isConnected) {
             echo '
                 <tr>
                     <td>'.$submission['nomMission'].'</td>
+                    <td>'.$submission['dateDepot'].'</td>
                     <td>'.$submission['user'].'</td>
                     <td>'.$submission['discord'].'</td>
                     <td><a href='.$submission['lien_repo_github'].'target="_blank">'.$submission['lien_repo_github'].'</a></td>
+                    <td>'.$submission['commentaire'].'</td>
                 </tr>';
             };
             echo'</table>';

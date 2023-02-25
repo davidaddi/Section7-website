@@ -43,12 +43,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($errors)) {
         $credentials = $_POST;
 
-        $stmt = $db->prepare('INSERT INTO missions_submissions (user, nomMission, discord, lien_repo_github) VALUES (:user, :nomMission,:discord, :lien_repo_github)');
+        $stmt = $db->prepare('INSERT INTO missions_submissions (user, nomMission, discord, lien_repo_github, commentaire) VALUES (:user, :nomMission,:discord, :lien_repo_github, :commentaire)');
         $stmt->execute([
             "user"=>$credentials['user'],
             "nomMission"=>$credentials['nomMission'],
             "discord"=>$credentials['discord'],
-            "lien_repo_github"=>$credentials['lien_repo_github']
+            "lien_repo_github"=>$credentials['lien_repo_github'],
+            "commentaire"=>$credentials['commentaire']
         ]);
         $success = 'Nous avons bien reçu votre projet.';
     }
@@ -92,6 +93,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="input-group">
       <input type="url" id="github" placeholder="https://github.com/legoatdegithub/superprojet" name="lien_repo_github" required>
       <span class="icon"><i class="fab fa-github"></i></span>
+    </div>
+    <div class="form-group" style="margin-top: 20px;">
+    <label for="message">Commentaires :</label>
+    <div class="input-group">
+      <textarea name="commentaire" rows="5" cols="60" placeholder="Des commentaires sur ton projet ?" value="<?= $commentaire ?? ''; ?>"></textarea>
+      <span class="icon"><i class="fa-solid fa-comment"></i></span>
     </div>
     
         

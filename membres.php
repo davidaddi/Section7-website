@@ -62,7 +62,9 @@
     <table id="usersTable">
         <tr>
             <th>Mission</th>
+            <th>Date de soumission</th>
             <th>Repo Github</th>
+            <th>Commentaire</th>
         </tr>
         <?php 
 
@@ -74,7 +76,9 @@
         foreach($submissions as $submission) {
             echo'<tr>
             <td>'.$submission['nomMission'].'</td>
+            <td>'.$submission['dateDepot'].'</td>
             <td>'.$submission['lien_repo_github'].'</td>
+            <td>'.$submission['commentaire'].'</td>
         </tr>';
         }
 
