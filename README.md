@@ -4,7 +4,7 @@ Section 7 - Mission 2 : Mettre en place un système efficace pour suivre les mis
 <h4>Le projet est réalisé en PHP/MySQL native. </h4>
 <p><b>Présentation de la base de données `db_section7`</b></p>
 <p>
-<b>users</b>(<ins>id</ins>, email, username, password, role, github,discord)<br>
+<b>users</b>(<ins>id</ins>, email, username, password, role, github,discord, token)<br>
 <b>grades</b>(image, nom, dc)<br>
 <b>missions_desc</b>(idMission, <ins>nomMission</ins>, rangMission, objectifMission, recompense, enonce, statut, deadline)<br>
 <b>missions_submissions</b>(user, #nomMission, discord, lien_repo_github)<br>
