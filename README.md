@@ -1,7 +1,7 @@
 # Section7-website
 Section 7 - Mission 2 : Mettre en place un système efficace pour suivre les missions de la Section 7 et enregistrer les contributions de chaque membre de la communauté.
 
-<h4>Le projet est réalisé en PHP/MySQL. </h4>
+<h4>Le projet est réalisé en PHP/MySQL native. </h4>
 <p><b>Présentation de la base de données `db_section7`</b></p>
 <p>
 <b>users</b>(<ins>id</ins>, email, username, password, role, github,discord)<br>
