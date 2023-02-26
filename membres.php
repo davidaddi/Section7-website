@@ -109,7 +109,7 @@
         }
 
         #usersTable tr {
-            background-color: #f2f2f2;
+            background-color: #7b5aae;
         }
 
 
@@ -117,7 +117,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: #ff5c00;
+            background-color: #7b5aae;
             color: white;
         }
     </style>
